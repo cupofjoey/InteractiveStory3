@@ -14,6 +14,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(ViewController.keyboardWillShow), name: Notification.Name.UIKeyboardWillShow, object: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,7 +48,13 @@ class ViewController: UIViewController {
             }
         }
     }
+    func keyboardWillShow(_ notification: Notfication) {
+        print("keyboard Will Show")
+    }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
     
     
     
