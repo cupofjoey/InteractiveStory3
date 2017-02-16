@@ -105,7 +105,6 @@
 				TargetAttributes = {
 					BE88C78B1E2413B1001B2033 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = R9E84DX62H;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -271,7 +270,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = R9E84DX62H;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = InteractiveStory/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.teamtreehouse.InteractiveStory;
@@ -284,7 +283,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = R9E84DX62H;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = InteractiveStory/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.teamtreehouse.InteractiveStory;
@@ -312,6 +311,7 @@
 				BE88C7A01E2413B1001B2033 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
