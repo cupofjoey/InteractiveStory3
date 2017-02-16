@@ -9,7 +9,7 @@
 import UIKit
 
 extension NSAttributedString {
-    var stringRange : NSRange {
+    var stringRange: NSRange {
         return NSMakeRange(0, self.length)
     }
 }
@@ -52,7 +52,7 @@ class PageController: UIViewController {
     }()
     
     lazy var storyLabel: UILabel = {
-    let label = UILabel()
+        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
         label.attributedText = self.page?.story(attributed: true)
@@ -83,8 +83,6 @@ class PageController: UIViewController {
         return button
     }()
     
-    
-    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
@@ -98,7 +96,6 @@ class PageController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .white
-        
     }
 
     override func didReceiveMemoryWarning() {

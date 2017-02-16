@@ -10,12 +10,13 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var nameTextField: UIImageView!
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var textFieldBottomConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(ViewController.keyboardWillShow), name: Notification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ViewController.keyboardWillShow(_:)), name: Notification.Name.UIKeyboardWillShow, object: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,9 +38,9 @@ class ViewController: UIViewController {
                     }
                 }
             } catch AdventureError.nameNotProvided {
-                let alertController = UIAlertController(title: "Name Not Provided", message: "Please Proved a Name to Start the Story", preferredStyle: .alert)
+                let alertController = UIAlertController(title: "Name Not Provided", message: "Provide a name to start the story", preferredStyle: .alert)
                 
-                let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
+                let action = UIAlertAction(title: "OK", style: .default, handler: nil)
                 alertController.addAction(action)
                 
                 present(alertController, animated: true, completion: nil)
@@ -48,26 +49,52 @@ class ViewController: UIViewController {
             }
         }
     }
-    func keyboardWillShow(_ notification: Notfication) {
-        print("keyboard Will Show")
+    
+    func keyboardWillShow(_ notification: Notification) {
+        if let info = notification.userInfo, let keyboardFrame = info[UIKeyboardFrameEndUserInfoKey] as? NSValue {
+            let frame = keyboardFrame.cgRectValue
+            textFieldBottomConstraint.constant = frame.size.height + 10
+            
+            UIView.animate(withDuration: 0.8) {
+                self.view.layoutIfNeeded()
+            }
+        }
     }
     
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
 
 }
+
+extension ViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
